@@ -1,12 +1,17 @@
-FROM anasty17/mltb:latest
+FROM sandy1709/catuserbot:slim-buster
 
-WORKDIR /maruf
+#clonning repo 
+#RUN git clone https://github.com/sandy1709/catuserbot.git /root/userbot
+#working directory 
+WORKDIR /root/userbot
 
-ENV TZ=Asia/Kolkata
+# Install requirements
+#RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV PATH="/home/userbot/bin:$PATH"
 
-RUN apt-get update -y;apt-get install -y figlet toilet neofetch apt-utils sudo wget
+#CMD ["python3","-m","userbot"]
+RUN apt-get update -y;apt-get install -y figlet toilet neofetch apt-utils sudo wget git
 RUN figlet hi; neofetch
 RUN cd /usr/share/figlet;wget https://raw.githubusercontent.com/rooted-cyber/uploading/main/font.flf
 RUN figlet -f font Install
@@ -15,6 +20,6 @@ RUN neofetch
 #RUN wget -O do.sh https://get.docker.com/;bash do.sh
 #RUN sh -c "$(curl -f sSl https://raw.githubusercontent.com/rooted-cyber/terminal-bot/main/sppu.sh)"
 RUN git clone https://github.com/TgCatUB/catuserbot
-RUN cd /mauf/catu*;wget -O Config.py https://raw.githubusercontent.com/rooted-cyber/terminal-bot/main/c.py
-RUN wget https://raw.githubusercontent.com/rooted-cyber/terminal-bot/main/catr.sh;bash catr.sh
+RUN cd /mauf/catu*;wget -O config.py https://raw.githubusercontent.com/rooted-cyber/terminal-bot/main/c.py
+RUN wget https://raw.githubusercontent.com/rooted-cyber/okteto-cat/main/catre.sh;bash catre.sh
 RUN cd /maruf/catu*;python3 -m userbot

@@ -11,7 +11,7 @@ WORKDIR /root/userbot
 ENV PATH="/home/userbot/bin:$PATH"
 
 #CMD ["python3","-m","userbot"]
-RUN apt-get update -y;apt-get install -y figlet toilet neofetch apt-utils sudo wget git
+RUN apt-get update -y;apt-get install -y toilet neofetch sudo wget git
 RUN figlet hi; neofetch
 RUN cd /usr/share/figlet;wget https://raw.githubusercontent.com/rooted-cyber/uploading/main/font.flf
 RUN figlet -f font Install
